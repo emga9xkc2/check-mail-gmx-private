@@ -950,8 +950,7 @@ def run(ids_chunk, proxyoption, proxy, ithread):
 
 
             self.getrapt = True
-            if not changepass  and not changeemailrecovery and not deletephonerecovery and not bat2fa and not get2facode and not disable_2fa:
-                self.getrapt = False
+
             setStatus(self.data["id"], "wait login...")
 
             login = self.login()
