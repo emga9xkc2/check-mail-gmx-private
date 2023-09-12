@@ -770,13 +770,13 @@ def checkPause():
 
 def run(ids_chunk, proxyoption, proxy, ithread):
 
-    from script.gmail import Gmail
+    from script.gmx import GMX
 
     global max_x, irunning, success, fail
 
     while ids_chunk:
 
-        self = Gmail()
+        self = GMX()
 
         self.user_info = key_info.get("user", "")
         self.ithread = ithread + 1
