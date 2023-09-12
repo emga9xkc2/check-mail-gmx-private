@@ -477,8 +477,8 @@ class Gmail:
             timestart = time.time()
             recaptcha = 0
             phoneresend = {}
-            p.goto("https://www.gmx.net/")
-            self.lastUrl = ""
+
+
             firsturl = "https://www.gmx.net/"
             passwordsender = False
             chaytutquyennguyen1 = False
@@ -495,7 +495,7 @@ class Gmail:
             inopecha = 0
             resettime = 0
             progressbar_time = 0
-            # self.lastUrl = p.url
+            self.lastUrl = p.url
             assistiveActionOutOfQuota_count = 0
             self.loginok = False
             def handle_route(route: Route):
@@ -567,9 +567,11 @@ class Gmail:
                         return "timeout.login"
 
                     url = p.url
+                    if "https://www.gmx.net/consent-management/" in url:
+                        p.goto("https://www.gmx.net/")
                     if "https://www.gmx.net/logoutlounge/?status=login-failed" in url:
-                        while 1:
-                            p.sleep(1)
+                        # while 1:
+                        #     p.sleep(1)
                         return "sai_pass"
                     if "navigator.gmx.net/login" in url:
                         return "login ok"
