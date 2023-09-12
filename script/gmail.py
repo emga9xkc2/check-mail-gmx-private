@@ -6,7 +6,7 @@ from script.expose import *
 from script.sqlalchemy import mailTable, Database, mailClass, Result, getConfig, Config
 from hplaywright import *
 from hplaywrightExtended import *
-from script.yandex import *
+
 ini = hini()
 lock = threading.Lock()
 lockextractext = threading.Lock()
