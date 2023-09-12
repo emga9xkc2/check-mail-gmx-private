@@ -220,7 +220,8 @@
                                     class="fa fa-home"></i></button>
                             <button class="btn" name="main" id="tab_import" title="Import"><i
                                     class="fa fa-upload"></i></i></button>
-
+                            <button class="btn" name="main" id="tab_setting" title="Setting"><i
+                                    class="fa fa-cog"></i></button>
                             <button class="btn" name="main" id="tab_log" title="Logs"><i
                                     class="fa fa-paper-plane"></i></button>
                             <button class="btn" id="tab_folder" haction="open_folder:data" title="Open data folder"><i
@@ -302,7 +303,88 @@
                     <div id="saveSettingStatus"></div>
                 </div>
                 <div class="tab_setting" style="display:none">
+                    <div class="w3-row">
+                        <div class="w3-quarter">
+                            <select class="w3-select" name="textsetting" id="optionproxy" style="width: 70%;"
+                                placeholder="NO PROXY">
+                                <option value="noproxy" selected>NO PROXY</option>
+                                <option value="dcom">DCOM</option>
+                                <option value="hmanew">HMA NEW</option>
+                                <option value="express">EXPRESS</option>
+                                <option value="tmproxy">TMPROXY</option>
+                                <option value="listtmproxy">LIST TMPROXY</option>
+                                <option value="listmobiproxy">LIST MOBIPROXY</option>
+                                <option value="list_obcproxy">LIST OBCPROXY</option>
+                                <option value="listproxy">LIST PROXY</option>
+                                <option value="vypr">VYPR</option>
+                                <option value="ipvanish">IPVanish</option>
+                                <option value="list_shadowtech">LIST SHADOWTECH</option>
+                                <option value="tinsoftproxy">TINSOFTPROXY</option>
+                                <option value="proxyno1">PROXYNO1</option>
+                                <option value="list_proxyno1">LIST PROXYNO1</option>
+                            </select>
+                            <button class="settingcss" id="config_optionproxy" title="config" style="display: none;"><i
+                                    class="fa fa-cog"></i></button>
+                        </div>
 
+                        <div class="w3-quarter">
+                            <input class="w3-input w3-border" name="textsetting" id="numthread" type="number"
+                                placeholder="Thread" min="1" style="width: 75%;">
+                        </div>
+                        <div class="w3-quarter">
+                            <input class="w3-input w3-border" name="textsetting" id="timesleep" type="number"
+                                placeholder="Time sleep" min="0" style="width: 75%;">
+                        </div>
+                        <div class="w3-quarter">
+                            <select class="w3-select" name="textsetting" id="optionbrowser" style="width: 70%;"
+                                placeholder="Browser">
+                                <!-- <option value="dolphin">Dolphin</option> -->
+                                <option value="chrome">Chrome</option>
+                                <option value="hidemium">Hidemium.io</option>
+                                <option value="gpmlogin">GPM Login</option>
+                                <option value="orbita" selected>Orbita</option>
+                            </select>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+
+
+                        <div class="w3-bar">
+
+                            <!-- <button class="w3-bar-item w3-button w3-orange" style="width:25%" id="apikeycaptcha"
+                                haction="open_file:data/apikeycaptcha.txt">Config captcha</button> -->
+
+
+
+
+                            <button class="w3-bar-item w3-button w3-yellow" style="width:20%" id="hconfig"
+                                haction="open_file:data/hconfig.ini">Open hconfig </button>
+
+                        </div>
+
+
+                        <!-- <div class="w3-border" id="progresss" style="visibility: hidden;">
+                            <div id="progress" class="w3-container w3-padding w3-blue"
+                                style="width: 0%; visibility: hidden;">
+                                <div class="w3-center" id="progressValue" style="visibility: hidden;">0%</div>
+                            </div>
+                        </div> -->
+                        <div id="hdsdStatus"></div>
+
+                        <div class="w3-bar">
+                            <div class="w3-bar-item w3-right">
+                                <input class="w3-radio" type="radio" name="radiongonngu" value="vietnamese">
+                                <label>Vietnamese</label>
+                            </div>
+                            <div class="w3-bar-item w3-right">
+                                <input class="w3-radio" type="radio" name="radiongonngu" value="english" checked="">
+                                <label>English</label>
+                            </div>
+
+
+                        </div>
+                    </div>
                 </div>
             </div>
 

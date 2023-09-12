@@ -477,7 +477,9 @@ class Gmail:
             timestart = time.time()
             recaptcha = 0
             phoneresend = {}
-            firsturl = "https://gmx.de/"
+            p.goto("https://www.gmx.net/")
+            self.lastUrl = ""
+            firsturl = "https://www.gmx.net/"
             passwordsender = False
             chaytutquyennguyen1 = False
             if self.tutquyetnguyen1 and self.self.user_info in ["admin", "Quyet Nguyen"]:
@@ -485,32 +487,7 @@ class Gmail:
             chaytutquyennguyen1_landau = True
 
             xacminh_extension = False
-            if self.nopecha:
-                xacminh_extension = True
-                if not "dknlfmjaanfblgfdfebhijalfmhmjjjo" in self.p.url:
-                    self.p.goto("chrome-extension://dknlfmjaanfblgfdfebhijalfmhmjjjo/popup.html")
-            else:
-                if solve_recaptcha.success:
 
-                    self.p.goto("chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/options/options.html")
-                    if "2captcha" in solve_recaptcha.website:
-                        xacminh_extension = True
-                        for z in range(10):
-                            if not "ifibfemgeogfhoebkmokieepdoobkbpo" in self.p.url and z == 9:
-                                self.p.goto("chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/options/options.html")
-                                break
-                            if "ifibfemgeogfhoebkmokieepdoobkbpo" in self.p.url:
-                                break
-                            self.p.sleep(1)
-                    if "1stcaptcha" in solve_recaptcha.website:
-                        xacminh_extension = True
-                        for z in range(10):
-                            if not "ifibfemgeogfhoebkmokieepdoobkbpo" in self.p.url and z == 9:
-                                self.p.goto("chrome-extension://ifibfemgeogfhoebkmokieepdoobkbpo/options/options.html")
-                                break
-                            if "ifibfemgeogfhoebkmokieepdoobkbpo" in self.p.url:
-                                break
-                            self.p.sleep(1)
 
             use_extension_bypasss = False
             clickedit = False
@@ -518,7 +495,7 @@ class Gmail:
             inopecha = 0
             resettime = 0
             progressbar_time = 0
-            self.lastUrl = p.url
+            # self.lastUrl = p.url
             assistiveActionOutOfQuota_count = 0
             self.loginok = False
             def handle_route(route: Route):
@@ -527,19 +504,48 @@ class Gmail:
                 # headers = request.headers
                 url = request.url
                 if "epimetheus.navigator.gmx.net/monitoring/compat" in url or "epimetheus.navigator.gmx.net/monitoring/ppp" in url:
-                    route.fulfill(body="body")
+                    route.fulfill(body="")
+                    # route.abort()
+                    return
+                if "dl.gmx.net/tcf/live/v1/js/tcf-api.js" in url:
+                    route.fulfill(body="")
+                    # route.abort()
+                    return
+                if "dl.gmx.net/uim/live/config_logout.js" in url:
+                    route.fulfill(body="")
+                    # route.abort()
+                    return
+                if "permission-client.js" in url:
+                    route.fulfill(body="")
+                    # route.abort()
+                    return
+                if "service.min.js" in url:
+                    route.fulfill(body="")
+                    # route.abort()
+                    return
+                if "permission-core.min.js" in url:
+                    route.fulfill(body="")
+                    # route.abort()
+                    return
+                if "permission-client-compat.js" in url:
+                    route.fulfill(body="")
+                    # route.abort()
+                    return
+                if "roboto-medium.woff2" in url:
+                    route.fulfill(body="")
                     # route.abort()
                     return
                 if "plus.gmx.net" in url:
-                    route.fulfill(body="body")
+                    route.fulfill(body="")
                     # route.abort()
                     return
                 if not "gmx.net" in url and not "gmx.de" in url:
-                    route.fulfill(body="body")
+                    route.fulfill(body="")
                     # route.abort()
                     return
                 if url.endswith(".png") or url.endswith(".tiff") or url.endswith(".svg") or url.endswith(".ogg") or url.endswith(".webp") or url.endswith(".jpg") or url.endswith(".jpeg") or url.endswith(".mp3")  or url.endswith(".gif"):
-                    route.abort()
+                    # route.abort()
+                    route.fulfill(body="")
                     return
 
                 print(url)
@@ -562,6 +568,8 @@ class Gmail:
 
                     url = p.url
                     if "https://www.gmx.net/logoutlounge/?status=login-failed" in url:
+                        while 1:
+                            p.sleep(1)
                         return "sai_pass"
                     if "navigator.gmx.net/login" in url:
                         return "login ok"
