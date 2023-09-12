@@ -1,0 +1,12 @@
+10/9/2023 15:22:37s => gmail.py: 382 => hplaywright.py: 200 => function [sync_playwright_start] timeout [1 seconds] exceeded!_hplaywright_start
+10/9/2023 15:24:7s => gmail.py: 382 => hplaywright.py: 201 => function [sync_playwright_start] timeout [1 seconds] exceeded!_hplaywright_start
+10/9/2023 15:29:40s => script.py: 942 => gmail.py: 382 => function [__init__] timeout [1 seconds] exceeded!
+10/9/2023 15:38:12s => main.py: 34 => heel.py: 124 => 
+10/9/2023 15:38:43s => main.py: 34 => heel.py: 124 => 
+10/9/2023 15:58:48s => script.py: 942 => gmail.py: 382 => 'hplaywright' object has no attribute 'playwright'
+10/9/2023 23:27:33s => script.py: 942 => gmail.py: 382 => 'str' object is not callable
+10/9/2023 23:57:29s => script.py: 942 => gmail.py: 382 => function [_make_self_pipe] timeout [1 seconds] exceeded!
+10/9/2023 23:58:29s => script.py: 942 => gmail.py: 382 => function [_make_self_pipe] timeout [1 seconds] exceeded!
+11/9/2023 16:33:0s => script.py: 993 => gmail.py: 3420 => Invalid expression type: 'disable2fa'
+12/9/2023 14:37:45s => script.py: 957 => gmail.py: 1182 => Target page, context or browser has been closed
+12/9/2023 14:50:30s => script.py: 957 => gmail.py: 1194 => Target page, context or browser has been closed

@@ -1,0 +1,24 @@
+USA - Albuquerque
+USA - Atlanta
+USA - Chicago
+USA - Dallas
+USA - Dallas - 2
+USA - Denver
+USA - Lincoln Park
+USA - Los Angeles - 1
+USA - Los Angeles - 2
+USA - Los Angeles - 3
+USA - Los Angeles - 5
+USA - Miami
+USA - Miami - 2
+USA - New Jersey - 1
+USA - New Jersey - 2
+USA - New Jersey - 3
+USA - New York
+USA - Phoenix
+USA - Salt Lake City
+USA - San Francisco
+USA - Santa Monica
+USA - Seattle
+USA - Tampa - 1
+USA - Washington DC

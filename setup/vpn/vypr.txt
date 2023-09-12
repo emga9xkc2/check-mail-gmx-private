@@ -1,0 +1,73 @@
+algeria
+argentina
+melbourne
+perth
+sydney
+austria
+bahrain
+belgium
+brazil
+bulgaria
+canada
+colombia
+rica
+czech
+denmark
+egypt
+salvador
+finland
+france
+germany
+greece
+hong kong
+iceland
+india
+indonesia
+ireland
+israel
+italy
+japan
+latvia
+liechten
+lithuania
+luxembourg
+macao
+malaysia
+maldives
+marshall
+mexico
+netherlands
+new zealand
+norway
+pakistan
+nama
+philippines
+poland
+rtugal
+qatar
+romania
+russia
+saudi
+singapore
+slovakia
+slovenia
+south korea
+spain
+sweden
+switzerland
+taiwan
+thailand
+turkey
+ukraine
+emirates
+kingdom
+uruguay
+sa - austin
+sa - chicago
+sa - los
+sa - miami
+sa - new
+sa - san
+sa - seat
+sa - wash
+vietnam

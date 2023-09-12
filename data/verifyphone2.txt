@@ -1,0 +1,1 @@
+-----BEGIN FILE HG-----# Định dạng:# {website} | {apiKey} | {idDichVu}# Mẫu:# http://chothuesimcode.com/account/api | 6kiykh0f | 1017-----END FILE HG-----https://viotp.com/Account/ApiDocument2 | 439eb03350cf41229a238101b98752af | -1

@@ -1,0 +1,251 @@
+-----BEGIN FILE HG-----<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" class="EMPTY">
+
+<head><script type="text/javascript" src="./interceptor/resource/org.apache.wicket.resource.JQueryResourceReference/jquery/jquery-3.6.0-ver-8FB8FEE4FCC3CC86FF6C724154C49C42.js?requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3"></script>
+<script type="text/javascript" src="https://dl.gmx.net/tcf/live/v1/js/tcf-api.js"></script>
+<script type="text/javascript" src="https://img.ui-portal.de/pos-cdn/tracklib/3.6.1/tracklib.poly.min.js"></script>
+<script type="text/javascript" src="https://uim.tifbs.net/js/90496.js"></script>
+<script type="text/javascript" id="defineGtmId">
+/*<![CDATA[*/
+var gtmId = '';
+/*]]>*/
+</script>
+<script type="text/javascript" id="initializeTrackLib">
+/*<![CDATA[*/
+
+        function initializeTrackLib() {
+            var preset = {
+                'lib' : {
+                    parameter : {
+                        software : 'if',
+                        softwareversion : '2.24.53',
+                        softwarevariant : 'null',
+                        iid : 'null',
+                        brand : 'gmxnet',
+                        registrationcountry : 'null',
+                        product : '0',
+                        hid : '',
+                        contentposition : '',
+                        source : 'null',
+                        destination : 'null'
+                    },
+                    properties : {
+                        lib : { stage : 'live'}
+                    }
+                },
+                'tif' : {
+                    properties : { system : { tif_container: NSfTIF } }
+                },
+                
+            };
+            var tracker = new TrackLib(preset);
+            return tracker;
+        }
+    
+/*]]>*/
+</script>
+<script type="text/javascript" id="doTrack">
+/*<![CDATA[*/
+
+        var NSfTIF = NSfTIF || {};
+
+        /* Make a tracking call. The tif tracking is not enabled by default and has to activated for this pi-tracking */
+        var tracker = initializeTrackLib();
+        // Initialize activeParam
+        var activeParam = {};
+        tracker.track({
+            section: 'interception.verifylogin.view',
+            trackingtype: 'pi'
+        }, activeParam);
+
+        // Track click event
+        function trackMyClick(sectionName) {
+            tracker.track({
+                section: sectionName,
+                trackingtype: 'cl'
+            })
+        }
+    
+/*]]>*/
+</script>
+<script type="text/javascript" src="./interceptor/resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-ajax-jquery-ver-04D5389C5F00ED98AD39E57EBB5AA818.js?requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3"></script>
+<script type="text/javascript" id="wicket-ajax-base-url">
+/*<![CDATA[*/
+Wicket.Ajax.baseUrl="?interceptiontype=VerifyLogin&amp;interceptiontype=VerifyLogin&amp;service=freemail&amp;requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3";
+/*]]>*/
+</script>
+
+    <title>GMX Login</title>
+    <meta charset="UTF-8"/>
+    <meta name="description" content=""/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+    <link rel="shortcut icon" type="image/x-icon" href="//img.ui-portal.de/cd/ci/gmx.net/favicon.ico"/>
+    <script type="text/javascript" src="//uim.tifbs.net/js/4006.js"></script>
+<script type="text/javascript" id="globalJs" charset="UTF-8" src="./interceptor/resource/gui.GuiResources/::/gui/uni_main-ver-ABFA6FE238735EF40AF83D53C6FEFF99.js?requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3"></script>
+<link rel="stylesheet" type="text/css" href="./interceptor/resource/gui.GuiResources/::/gui/styles/default/themes/uni-ver-FFA18EE8CD5D2AE5275EA28E618201C8.css?-gmxnet&amp;requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3" />
+<script type="text/javascript" >
+/*<![CDATA[*/
+Wicket.Event.add(window, "domready", function(event) { 
+Wicket.Ajax.ajax({"u":"./?0-1.0-form-captchaPanel-captchaImagePanel-reload&interceptiontype=VerifyLogin&interceptiontype=VerifyLogin&service=freemail&requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3","c":"get_new_captcha","e":"click"});;
+Wicket.Ajax.ajax({"u":"./?0-1.0-form-passwordInput-topWrapper-inputWrapper-input&interceptiontype=VerifyLogin&interceptiontype=VerifyLogin&service=freemail&requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3","c":"id1","e":"keydown"});;
+Wicket.Ajax.ajax({"u":"./?0-1.0-form-submitButton&interceptiontype=VerifyLogin&interceptiontype=VerifyLogin&service=freemail&requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3","m":"POST","c":"id3","f":"id2","sc":"submitButton","e":"click","pd":true});;
+Wicket.Event.publish(Wicket.Event.Topic.AJAX_HANDLERS_BOUND);
+;});
+/*]]>*/
+</script>
+</head>
+
+<body id="top" class="jsDisabled site-gmx">
+
+<div class="main-layout">
+
+        
+
+    <div class="header">
+        <div class="header__logo">
+            <svg class="pos-svg icon icon--logo-gmx-dims">
+                <use href="./interceptor/resource/_cp._/::/gui/assets/icons/sprite-ver-D3F1EDEA52AAAD29F634A631F98FAF3B.svg?requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3#logo-gmx"></use>
+            </svg>
+        </div>
+
+        <div class="header__text">Mein Account</div>
+    </div>
+
+
+        
+
+    <div class="centered-content centered-content--narrow">
+        <div>
+    <div class="a-ta-c a-mb-space-2">
+        <svg class="pos-svg icon icon--logo-gmx-56-dims icon--brand">
+            <use href="./interceptor/resource/_cp._/::/gui/assets/icons/sprite-ver-D3F1EDEA52AAAD29F634A631F98FAF3B.svg?requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3#logo-gmx-56"></use>
+        </svg>
+    </div>
+</div>
+        <div class="a-ta-c a-mb-space-4">
+            <h1>Bitte erneut einloggen</h1>
+            <p>Bitte melden Sie sich mit Ihrer GMX E-Mail-Adresse und Passwort erneut an.</p>
+        </div>
+        <form class="form-l" action="./?0-1.-form&amp;interceptiontype=VerifyLogin&amp;interceptiontype=VerifyLogin&amp;service=freemail&amp;requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3" data-formcheck-nocheck="nocheck" novalidate="novalidate" enctype="multipart/form-data; charset=UTF-8" id="id2" method="post"><input id="requestSecurityToken"type="hidden"name="requestSecurityToken"value="722d5207-889c-4c7c-95d4-168f1c2ffff3"/>
+
+
+            <div id="0:form:usernameInput">
+    <div class="pos-form-wrapper">
+        <label class="pos-label pos-label--block required" for="0:form:usernameInput:topWrapper:inputWrapper:input">GMX E-Mail-Adresse</label>
+        <div class="pos-input">
+            
+            <input type="text" value="" name="usernameInput:topWrapper:inputWrapper:input" id="0:form:usernameInput:topWrapper:inputWrapper:input"/>
+
+        </div>
+    </div>
+    <div id="id4">
+
+    
+
+</div>
+</div>
+            <div id="0:form:passwordInput">
+
+    <div class="pos-form-wrapper revealable-input-row">
+        <div class="item-label">
+            <label class="pos-label pos-label--block required" for="id1">Passwort eingeben</label>
+        </div>
+        <div class="pos-input">
+            <input class="pos-input--password revealable-input-row__input" type="password" autocomplete="off" value="" name="passwordInput:topWrapper:inputWrapper:input" id="id1"/>
+            <div class="revealable-input-row__icon pos-input-icon">
+                <svg class="icon icon--password-eye-dims">
+                    <use href="./interceptor/resource/_cp._/::/gui/assets/icons/sprite-ver-D3F1EDEA52AAAD29F634A631F98FAF3B.svg?requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3#password-eye"></use>
+                </svg>
+            </div>
+        </div>
+        
+    </div>
+    <div id="id5">
+
+    
+
+</div>
+</div>
+
+            
+    <h2 class="info-suffix">
+        Sicherheitsabfrage
+
+        <div class="info-suffix__icon click-to-toggle" data-toggle-id="captcha">
+            <svg class="pos-svg icon icon--info-dims icon--brand ">
+                <use href="./interceptor/resource/_cp._/::/gui/assets/icons/sprite-ver-D3F1EDEA52AAAD29F634A631F98FAF3B.svg?requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3#info"></use>
+            </svg>
+        </div>
+    </h2>
+    <div class="pos-info-box pos-content-box a-d-n" data-id="captcha">
+        <div class="pos-info-box__outer-wrapper">
+            <div class="pos-info-box__inner-wrapper">
+        Bitte geben Sie die Zeichen aus dem Bild ein. Damit wird sichergestellt, dass die
+        Anfrage von einem Menschen angestoßen wird.
+    </div>
+            <svg class="pos-svg icon icon--close-dims click-to-toggle" data-toggle-id="captcha">
+                <use href="./interceptor/resource/_cp._/::/gui/assets/icons/sprite-ver-D3F1EDEA52AAAD29F634A631F98FAF3B.svg?requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3#close"></use>
+            </svg>
+        </div>
+    </div>
+    <div id="id7">
+    <div class="captcha ">
+        <div class="captcha__image-wrapper">
+            <img class="captcha__image" src="./?0--form-captchaPanel-captchaImagePanel-captcha~image&amp;interceptiontype=VerifyLogin&amp;interceptiontype=VerifyLogin&amp;service=freemail&amp;requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3&amp;antiCache=1694488740623" alt="" id="id8"/>
+        </div>
+        <a href="javascript:;" class="captcha__link" id="get_new_captcha">
+            <svg class="pos-svg icon icon--refresh-dims icon--brand a-mr-space-1 a-va-m">
+                <use href="./interceptor/resource/_cp._/::/gui/assets/icons/sprite-ver-D3F1EDEA52AAAD29F634A631F98FAF3B.svg?requestSecurityToken=722d5207-889c-4c7c-95d4-168f1c2ffff3#refresh"></use>
+            </svg>
+            Andere Zeichenfolge anzeigen
+        </a>
+    </div>
+
+    <div id="0:form:captchaPanel:captchaImagePanel:captchaInput">
+    <div class="pos-form-wrapper">
+        <label class="pos-label pos-label--block" for="0:form:captchaPanel:captchaImagePanel:captchaInput:topWrapper:inputWrapper:input">Zeichenfolge eingeben</label>
+        <div class="pos-input">
+            
+            <input type="text" value="" name="captchaPanel:captchaImagePanel:captchaInput:topWrapper:inputWrapper:input" id="0:form:captchaPanel:captchaImagePanel:captchaInput:topWrapper:inputWrapper:input"/>
+
+        </div>
+    </div>
+    <div id="id9">
+
+    
+
+</div>
+</div>
+
+</div>
+    
+
+            <button type="submit" value="Login" class="pos-button pos-button--cta  pos-button--block" name="submitButton" id="id3">Login</button>
+        </form>
+    </div>
+
+
+
+        
+    
+
+
+
+        
+    <div class="footer">
+        <a class="footer__link" target="_blank" href="https://www.gmx.net/impressum/">Impressum</a>
+        <a class="footer__link" target="_blank" href="https://www.gmx.net/kuendigungsformular">Verträge hier kündigen</a>
+        <a class="footer__link" target="_blank" href="https://agb-server.gmx.net/datenschutz">Datenschutzhinweise</a>
+        <a class="footer__link" target="_blank" href="https://agb-server.gmx.net/gmxagb-de">AGB</a>
+        <a class="footer__link" target="_blank" href="https://hilfe.gmx.net/">Hilfe und Tipps</a>
+    </div>
+
+</div>
+
+<div>
+
+</div>
+
+</body>
+</html>-----END FILE HG-----

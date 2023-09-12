@@ -1,0 +1,1109 @@
+<!-- <script>
+    alert("OK")
+</script> -->
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+<html lang="en" dir="ltr" style="overflow-y: auto;">
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <!--<title> Drop Down Sidebar Menu | CodingLab </title>-->
+    <!-- <link href="/menu.css" rel="stylesheet" /> -->
+    <script type="text/javascript" src="/eel.js"></script>
+    <script defer src="/static/app.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/w3.css">
+    <script src="/static/jquery-1.12.4.min.js"></script>
+
+    <link href="/static/toast/toastr.css" rel="stylesheet" />
+    <link href="/codinglab.css" rel="stylesheet" />
+    <link href="/page.css" rel="stylesheet" />
+    <link href="/css/select.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"> -->
+
+    <script src="/static/toast/toastr.min.js"></script>
+
+
+
+    <script src="/static/myscript.js" defer></script>
+
+    <title></title>
+    <style>
+        body td>input {
+            border: none;
+            width: 45%
+        }
+
+        .w3-table-all tr:nth-child(odd) {
+            background-color: #fff
+        }
+
+
+        .w3-table-all tr:nth-child(even) {
+            background-color: #f1f1f1
+        }
+
+        .w3-table-all tr:nth-child(even) input,
+        .w3-table-all tr:nth-child(odd) input {
+            background-color: inherit;
+        }
+
+        .dialog_wrapper {
+            background-color: #03030365;
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            display: none;
+        }
+
+        .dialog-content {
+            width: 600px;
+            margin: 200px auto 0 auto;
+            background-color: rgb(0, 174, 174);
+            padding: 20px;
+            box-shadow: 12px 12px 25px -14px rgba(0, 0, 0, 0.75);
+            position: relative;
+        }
+
+        .dialog-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: red;
+            font-size: 32px;
+        }
+
+        .dialog-content h2 {
+            text-align: center;
+            color: rgb(75, 18, 218);
+            margin-top: -5px
+        }
+
+        .dialog-input {
+
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .dialog-input input {
+            width: 75%;
+        }
+
+        .dialog-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .dialog-buttons-left {
+            display: flex;
+            gap: 5px;
+        }
+
+        .dialog-buttons-right {
+            display: flex;
+            margin-right: 20px;
+        }
+
+        .group-form {
+            border: 2px solid #000;
+            position: relative;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .group-form-label {
+            color: gold;
+            background-color: rgb(0, 174, 174);
+            padding: 0 10px;
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script>
+        // document.getElementById("dialog_captcha").style.display = "block";
+    </script>
+
+    <section class="home-section" style="left: 5px; width: calc(100% - 10px);">
+        <br>
+
+        <style>
+            .btn {
+                background-color: DodgerBlue;
+                border: none;
+                color: white;
+                padding: 10px 15px;
+                font-size: 12px;
+                cursor: pointer;
+                width: 41.16px;
+                margin-bottom: 5px;
+            }
+
+            .settingcss {
+                background-color: rgb(218, 18, 25);
+                border: none;
+                color: white;
+                padding: 1px 5px;
+                font-size: 10px;
+                cursor: pointer;
+                margin-left: 8px;
+                border-radius: 7px;
+            }
+
+            /* Darker background on mouse-over */
+            .settingcss:hover {
+                background-color: rgb(200, 22, 156);
+            }
+
+            .btn_icon {
+                background-color: rgb(75, 18, 218);
+                border: none;
+                color: white;
+                padding: 1px 6px;
+                font-size: 13px;
+                cursor: pointer;
+                margin-left: 5px;
+                border-radius: 7px;
+            }
+
+            /* Darker background on mouse-over */
+            .btn_icon:hover {
+                background-color: rgb(200, 22, 156);
+            }
+
+            .btn:hover {
+                background-color: RoyalBlue;
+            }
+
+            .newp {
+                line-height: 2.5;
+            }
+        </style>
+
+        <div id="id01" class="w3-modal">
+            <div class="w3-modal-content">
+                <div class="w3-container">
+                    <span onclick="document.getElementById('id01').style.display='none'"
+                        class="w3-button w3-display-topright">&times;</span>
+                    <div id="load-hidedash"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="home" class="w3-container tabs">
+
+            <!-- <p id="numsuccess" class="w3-half w3-left">Success</p> -->
+            <div class="w3-bar">
+                <div class="w3-row">
+                    <div class="w3-third">
+                        <div class="khoangcach">
+                            <button class="btn" name="main" id="tab_home" title="Home"><i
+                                    class="fa fa-home"></i></button>
+                            <button class="btn" name="main" id="tab_import" title="Import"><i
+                                    class="fa fa-upload"></i></i></button>
+
+                            <button class="btn" name="main" id="tab_log" title="Logs"><i
+                                    class="fa fa-paper-plane"></i></button>
+                            <button class="btn" id="tab_folder" haction="open_folder:data" title="Open data folder"><i
+                                    class="fa fa-folder"></i></button>
+                        </div>
+
+                    </div>
+                    <div class="w3-third">
+                        <div class="khoangcach">
+
+                            <button class="btn_icon" id="btn_load" title="Load"><i class="fa fa-refresh"></i></button>
+
+                        </div>
+                        <div class="khoangcach" style="margin-top: 9px;">
+                            <label id="lbstatus" style="color: red; font-size: 20px;"><b></b></label>
+                        </div>
+                    </div>
+                    <div class="w3-third">
+                        <div class="w3-right lang"><input type="checkbox" id="checkpause"><label for="checkpause">
+                                Pause</label></div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <!-- <button onclick="load_mail()" class="w3-button w3-teal w3-right">Cập nhật danh sách mail</button> -->
+            <div id="main">
+                <div class="tab_home">
+                    <div style="overflow-y: scroll; height: 500px;">
+                        <table class="w3-table-all" id="table_mail">
+                        </table>
+                    </div>
+                    <!-- <div id="load_page"> -->
+                    <div id="app" class="container">
+                        <ul class="page">
+                            <li class="page__btn" id="back_page"><span class="material-icons">chevron_left</span></li>
+                            <li class="page__numbers">1</li>
+                            <li class="page__numbers">2</li>
+                            <li class="page__numbers">3</li>
+                            <li class="page__numbers">4</li>
+                            <li class="page__numbers">5</li>
+                            <li class="page__numbers">6</li>
+                            <li class="page__numbers">7</li>
+                            <li class="page__numbers">8</li>
+                            <li class="page__numbers">9</li>
+                            <li class="page__numbers">10</li>
+                            <li class="page__btn" id="next_page"><span class="material-icons">chevron_right</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab_log" style="display: none;">
+                    <div class="w3-row">
+                        <textarea id="nhatkyhoatdong" rows="15"
+                            style="width: 100%; resize: none;border: 1px solid #ccc;" placeholder="Logs"></textarea>
+                    </div>
+                </div>
+
+                <div class="tab_import" style="display:none">
+
+                    <div class="w3-row">
+                        <textarea class="lang" id="txt_account" rows="15"
+                            style="width: 100%; resize: none;border: 1px solid #ccc;" placeholder="Enter the list of accounts.
+                Format: Email | Password | Email Recovery | Phone Recovery | Code1,Code2,Code3..."></textarea>
+
+                    </div>
+
+                    <br>
+                    <!-- <input type=" file" id="ifile"> -->
+                    <button id="btn_import" class="w3-button w3-teal w3-right">Import</button>
+                    <br>
+                    <br>
+                    <br>
+
+                    <div id="saveSettingStatus"></div>
+                </div>
+                <div class="tab_setting" style="display:none">
+
+                </div>
+            </div>
+
+            <div style="float: left;">
+                <p class="lang" id="numsuccess" style="display:inline;">...</p>
+            </div>
+            <div style="float: right;">
+                <p class="lang" id="selected" style="display:inline;">...</p>
+            </div>
+
+
+            <br>
+
+
+            <div style="float: left;">
+                <p id="user" style="display:inline; line-height: 2.5;"></p><button class="settingcss"
+                    style="display:inline; background-color:DodgerBlue" id="activeaccount"
+                    title="Kích hoạt tài khoản"><i class="fa fa-user-circle"></i></button>
+
+            </div>
+
+
+
+
+            <div style="float: right;">
+                <p id="version" style="display:inline;">...</p>
+                <button class="settingcss" style="color: rgb(212, 255, 0); display:inline;" id="updateversion"
+                    title="Cập nhật phiên bản mới"><i class="fa fa-download"></i></button>
+            </div>
+
+            <!-- </div> -->
+
+
+        </div>
+
+
+        <script>
+
+            var selected = [];
+            function load_mail(numberPage) {
+                currentPage = numberPage;
+
+                const limit = 1500;
+                const skip = (numberPage - 1) * limit;
+                get_mails(
+                    skip,
+                    limit
+                ).then((callback) => {
+                    // console.log(callback);
+                    var success = callback.success;
+                    var data = callback.data;
+                    // console.log(msg);
+
+
+                    var thead = `<thead><tr class="w3-light-grey w3-hover-red"><th id="select-table">Select</th><th name="id">ID</th><th>Account</th><th name="status">Status</th></tr></thead>`;
+                    var tr = "";
+                    var i = 0;
+                    for (const element of data) {
+                        i = i + 1;
+                        thead =
+                            thead +
+                            `<tr class="w3-hover-green" id="${element.id}">
+                            <td><input type="checkbox" name="mails" value="${element.id}"></input></td>
+                            <td>${i}</td>
+                            <td><input type="text"  value="${element.email} | ${element.password} | ${element.emailrecovery} | ${element.phonerecovery}"></td>
+
+
+                            <td><input type="text" name="status" value="${element.status != null && element.status != '' ? element.status : ''}"></td>
+
+
+                        </tr>`;
+                        // console.log(element);
+                    }
+                    setHtmlCssSelector("#table_mail", thead);
+                    send_message({
+                        action: "get_settings",
+                        sender: "",
+                        args: [],
+                        form: "",
+                    }).then((callback) => {
+                        var hconfig = callback.hconfig
+                        var lang = callback.lang
+                        for (let key in hconfig) {
+                            var value = hconfig[key]
+
+                            if (key.startsWith("check_") && strToBool(value)) {
+                                var id = key.split("_")[1]
+                                if (id.startsWith("hide")) {
+                                    id = id.substring(4)
+                                    var columnIndex = $('th[name="' + id + '"]').index();
+                                    $('table td:nth-child(' + (columnIndex + 1) + '), table th:nth-child(' + (columnIndex + 1) + ')').hide();
+                                    // $('*[name="' + id + '"]').hide()
+                                }
+                            }
+                        }
+                    })
+
+
+                    // eel.getSetting()(function (callback) {
+                    //     var hconfig = callback.hconfig
+                    //     var lang = callback.lang
+                    //     for (let key in hconfig) {
+                    //         var value = hconfig[key]
+
+                    //         if (key.startsWith("check_") && strToBool(value)) {
+                    //             var id = key.split("_")[1]
+                    //             if (id.startsWith("hide")) {
+                    //                 id = id.substring(4)
+                    //                 var columnIndex = $('th[name="' + id + '"]').index();
+                    //                 $('table td:nth-child(' + (columnIndex + 1) + '), table th:nth-child(' + (columnIndex + 1) + ')').hide();
+                    //                 // $('*[name="' + id + '"]').hide()
+                    //             }
+                    //         }
+                    //     }
+                    // })
+
+
+
+                    checkboxEvent()
+                    $("#select-table").bind("click", function () {
+                        var checkboxes1 = document.getElementsByName("mails");
+                        var item1checked = false
+                        for (var i = 0, n = checkboxes1.length; i < n; i++) {
+                            if (i == 0) {
+                                item1checked = checkboxes1[i].checked
+                            }
+                            checkboxes1[i].checked = !item1checked;
+                            value = checkboxes1[i].value;
+                            if (item1checked == false) {
+                                selectedPush(value);
+                            } else {
+                                selectedRemove(value)
+                            }
+                        }
+                        showSelected()
+                    });
+                })
+
+
+            }
+            function selectedPush(value) {
+                if (selected.includes(value)) {
+                    return;
+                }
+                selected.push(value);
+            }
+
+            function selectedRemove(value) {
+                selected = selected.filter((val) => val !== value);
+            }
+            function checkboxEvent() {
+                const checkboxes = document.querySelectorAll("input[name='mails']");
+                checkboxes.forEach(function (checkbox) {
+                    if (selected.includes(checkbox.value)) {
+                        checkbox.checked = true;
+                    } else if (selected.includes(parseInt(checkbox.value))) {
+                        checkbox.checked = true;
+                    } else {
+                        checkbox.checked = false;
+                    }
+                    // console.log(checkbox);
+                    checkbox.addEventListener("change", function () {
+                        if (this.checked) {
+                            selectedPush(this.value);
+                        } else {
+                            selectedRemove(this.value);
+                        }
+                        showSelected()
+                    });
+                });
+
+            }
+            function showSelected() {
+                var text = "Selected"
+                var langselect = localStorage.getItem("lang")
+                if (langselect == "vi") {
+                    text = "Đã chọn"
+                }
+
+                setHtmlCssSelector("#selected", text + ": " + selected.length)
+
+            }
+            // document.addEventListener('DOMContentLoaded', function () {
+            window.addEventListener('load', function () {
+
+                var apikeyactive = "apikeyactive"
+
+                $('#stop').bind('click', function () {
+                    if (confirm("Stop confirmation!") == false) {
+                        toastWarning("Cannel stop");
+                        return;
+                    }
+
+                    eel.setRunning(false)
+                })
+
+
+
+
+                eel.expose(update_progress);
+                function update_progress(percent) {
+                    percent = percent.toString()
+                    var progressValue = ""
+                    if (percent.includes("_")) {
+                        progressValue = " " + percent.split("_")[1]
+                        percent = percent.split("_")[0]
+                        if (progressValue.includes("/")) {
+                            progressValue = "(" + progressValue + ")"
+                        }
+                    }
+                    percent = parseInt(percent)
+                    if (percent == 0) {
+                        $("#progresss").css("visibility", "visible")
+                        $("#progress").css("visibility", "visible")
+                        $("#progressValue").css("visibility", "visible")
+                        return
+                    }
+                    $("#progress").css("width", percent + "%")
+                    if (percent > 0) {
+                        $("#progressValue").html(percent + "%" + progressValue);
+                    }
+                    // $("#progress").val(percent)
+                }
+                eel.expose(download_progress);
+                function download_progress(file_download) {
+                    show_updates("Downloading " + file_download + ". Please wait...")
+                }
+                eel.expose(close_show_update);
+                function close_show_update() {
+                    document.querySelector('#progresss + button').click();
+                }
+                function show_updates(title) {
+
+
+                    var langselect = localStorage.getItem("lang")
+                    if (langselect == "vi") {
+
+                        if (title == "Updating new version. Please wait...") {
+                            title = "Đang cập nhật phiên bản mới. Xin chờ..."
+                        } else if (title.substring("Downloading")) {
+                            title = title.replace("Downloading", "Đang tải")
+                            title = title.replace("Please wait", "Xin chờ")
+                        }
+
+
+                    }
+                    showUpdate({ title: title })
+                    update_progress(0)
+                }
+                $("#updateversion").bind("click", function () {
+                    // alert("1234")
+
+
+                    show_updates("Updating new version. Please wait...")
+
+
+                    send_message({
+                        action: "auto_update",
+                        sender: "",
+                        args: [],
+                        form: "",
+                    }).then((callback) => {
+                        var t2 = "Done updating. Please turn off the tool and reopen it to use the new version"
+                        var t3 = "Update failed. Try again."
+                        var langselect = localStorage.getItem("lang")
+                        if (langselect == "vi") {
+                            t2 = `Đã cập nhật xong. Hãy tắt tool đi mở lại để dùng phiên bản mới`
+                            t3 = `Cập nhật thất bại. Hãy thử lại.`
+                        }
+                        var mess = callback.mess
+                        if (mess == "success") {
+                            setHtmlCssSelector("#updateStatus", t2)
+                            $("#updateStatus").css("color", "green")
+                        } else {
+                            setHtmlCssSelector("#updateStatus", t3)
+                            $("#updateStatus").css("color", "red")
+                        }
+                        console.log(callback)
+                    })
+
+
+                });
+
+                $("#activeaccount").bind("click", function () {
+                    showDialog({
+                        title: "Nhập key để kích hoạt phần mềm",
+                        value: localStorage.getItem(apikeyactive),
+                    }).then(function (value) {
+                        kich_hoat_tai_khoan(value)
+                    })
+                });
+
+
+
+
+
+                send_message({
+                    action: "load_hide_column",
+                    sender: "",
+                    args: [],
+                    form: "",
+                }).then((callback) => {
+                    data = callback.data;
+                    i = -1;
+                    html = "";
+                    j = 0;
+                    adder = false;
+                    for (const key in data) {
+                        adder = false;
+                        const value = data[key];
+                        i = i + 1;
+                        j = j + 1;
+                        if (i % 3 === 0) {
+                            html = html + `<div class="w3-row">`;
+                        }
+                        html =
+                            html +
+                            `<div class="w3-third"><input type="checkbox" name="checkhidedash" id="hide${key}"><label for="${key}"> ${value}</label></div>`;
+                        if (j % 3 === 0) {
+                            html = html + `</div>`;
+                            adder = true;
+                        }
+                    }
+                    if (adder == false) {
+                        html = html + `</div>`;
+                    }
+                    setHtmlCssSelector("#load-hidedash", html);
+                    $("*[name='checkhidedash']").bind('click', function (ev) {
+                        eel.updateSetting("check" + "_" + this.id, this.checked)()
+                    });
+
+
+                })
+
+
+
+
+
+
+                function setDisplayMain(id) {
+                    var thisselector = $("." + id);
+                    var isShown = thisselector.css("display") == "block";
+                    $("#main > div").hide();
+                    $("." + id).css("display", "block");
+                    // if (isShown) {
+                    //     $(".tab_table").css("display", "block");
+                    // } else {
+                    //     $("." + id).css("display", "block");
+                    // }
+                }
+                $("*[name='main']").on("click", function () {
+                    var id = this.id
+                    setDisplayMain(id);
+                });
+
+
+
+                $("#hidecolumn").bind("click", function () {
+                    $("#id01").css("display", "block")
+                });
+
+                $("#checkpause").bind("click", function () {
+                    eel.setPause(this.checked)()
+                });
+                function pagination(c, m) {
+                    var current = c,
+                        last = m,
+                        delta = 2,
+                        left = current - delta,
+                        right = current + delta + 1,
+                        range = [],
+                        rangeWithDots = [],
+                        l;
+
+                    for (let i = 1; i <= last; i++) {
+                        if (i == 1 || i == last || (i >= left && i < right)) {
+                            range.push(i);
+                        }
+                    }
+
+                    for (let i of range) {
+                        if (l) {
+                            if (i - l === 2) {
+                                rangeWithDots.push(l + 1);
+                            } else if (i - l !== 1) {
+                                rangeWithDots.push("...");
+                            }
+                        }
+                        rangeWithDots.push(i);
+                        l = i;
+                    }
+                    return rangeWithDots;
+                }
+                function generateHTML(currentPage, totalPages) {
+                    currentPage = parseInt(currentPage);
+                    var html = '<ul class="page">';
+                    html +=
+                        '<li class="page__btn" id="back_page"><span class="material-icons">chevron_left</span></li>';
+
+                    var paginationArray = pagination(currentPage, totalPages);
+                    for (var i = 0; i < paginationArray.length; i++) {
+                        var pageNumber = paginationArray[i];
+                        if (pageNumber === "...") {
+                            html += '<li class="page__dots">...</li>';
+                        } else {
+                            html += '<li class="page__numbers">' + pageNumber + "</li>";
+                        }
+                    }
+
+                    html +=
+                        '<li class="page__btn" id="next_page"><span class="material-icons">chevron_right</span></li>';
+                    html += "</ul>";
+
+                    return html;
+                }
+                var currentPageNum = 1;
+                function loadPage() {
+                    return new Promise((resolve, reject) => {
+
+
+                        send_message({
+                            action: "get_count_mail",
+                            sender: "",
+                            args: [],
+                            form: "",
+                        }).then((callback) => {
+                            currentPageNum = parseInt(currentPageNum);
+                            // console.log(callback);
+                            var count_item = callback.data;
+                            // alert(count_item);
+                            var html = generateHTML(currentPageNum, count_item);
+                            print(callback.data)
+                            setHtmlCssSelector("#load_page", html);
+                            resolve();
+                        })
+
+                        // eel.get_count_mail()(function (callback) {
+                        //     currentPageNum = parseInt(currentPageNum);
+                        //     // console.log(callback);
+                        //     var count_item = callback.data;
+                        //     // alert(count_item);
+                        //     var html = generateHTML(currentPageNum, count_item);
+                        //     setHtmlCssSelector("#load_page", html);
+                        //     resolve();
+                        // });
+                    });
+                }
+
+                function loadTableMails() {
+                    return new Promise((resolve, reject) => {
+                        const table = document.getElementById("table_mail");
+
+                        table.addEventListener("contextmenu", function (event) {
+                            event.preventDefault();
+                            let selectedData;
+
+                            if (event.target.nodeName === "TD") {
+                                const el = document.getElementsByName("menus");
+                                if (el.length > 0) {
+                                    el[0].remove();
+                                }
+
+                                const innerHTML = event.target.innerHTML;
+                                const colIndex = event.target.cellIndex;
+                                const rowIndex = event.target.parentNode.rowIndex;
+                                row = table.rows[rowIndex];
+                                // console.log(row.innerHTML);
+                                selectedData = row.innerHTML;
+                                statusElm = row.querySelector('input[name="status"]')
+                                statusValue = ""
+                                if (statusElm) {
+                                    statusValue = statusElm.value
+                                }
+                                // console.log(statusValue)
+                                // Tạo menu chuột phải
+                                const menu = document.createElement("div");
+                                menu.setAttribute("name", "menus");
+
+                                menu.style.position = "fixed";
+                                menu.style.backgroundColor = "white";
+                                menu.style.top = `${event.clientY}px`;
+                                menu.style.left = `${event.clientX}px`;
+                                menu.style.boxShadow = "0px 0px 10px gray";
+                                menu.style.padding = "10px";
+                                menu.innerHTML = `
+                        <div class="menu-item" id="select-item">Select</div>
+                        <div class="menu-item" id="deselect-item">Deselect</div>
+            <div class="menu-item" id="copy-item">Copy</div>
+            <div class="menu-item" id="selectall-item">Select all mails</div>
+            <div class="menu-item" id="selectall-item-no-running">Select mails that has not been run</div>
+            <div class="menu-item" id="selectall-item-running">Select mails has been running</div>
+            <div class="menu-item" id="selectall-item-status" value="${statusValue}">Select mails with status is '${statusValue}'</div>
+            <div class="menu-item" id="deselectall-item">Deselect all</div>
+            <div class="menu-item" id="deleteall-item">Delete selected mails</div>
+            <div class="menu-item" id="exportall-item">Export selected mails</div>
+            <div class="menu-item" id="runall-item">Run selected mails</div>
+            `;
+
+                                document.body.appendChild(menu);
+
+                                var langselect = localStorage.getItem("lang")
+                                var lang = JSON.parse(localStorage.getItem("langdata"))
+                                // console.log(lang)
+                                if (langselect == "vi") {
+                                    $(".menu-item").each(function () {
+                                        var labelText = $(this).text().trim();
+
+                                        var newvalue = lang[labelText];
+                                        if (newvalue) {
+                                            $(this).html(newvalue);
+                                        } else {
+                                            if (labelText.startsWith("Select mails with status is")) {
+                                                newvalue = labelText.replace("Select mails with status is", "Chọn mail trạng thái là")
+                                                $(this).html(newvalue);
+                                            }
+                                        }
+                                        console.log(labelText, newvalue)
+                                    })
+                                }
+
+
+                                if (statusValue == "") {
+                                    $("#selectall-item-status").css("display", "none");
+                                }
+                                $("#copy-item").css("display", "none");
+                                const checkbox = row.querySelector("input[type='checkbox']");
+                                const checked = checkbox.checked;
+                                if (checked) {
+                                    $("#select-item").css("display", "none");
+                                } else {
+                                    $("#deselect-item").css("display", "none");
+                                }
+                                // Thêm sự kiện cho menu sao chép
+                                $("#copy-item").bind("click", function () {
+                                    navigator.clipboard.writeText(selectedData);
+                                    menu.remove();
+                                });
+                                $("#runall-item").bind("click", function () {
+                                    if (selected.length == 0) {
+                                        toastError("Please select the mail to run first");
+                                        return;
+                                    }
+                                    handle_account("run", selected)
+                                    // eel.runAccountsThread(selected)();
+                                });
+                                $("#deleteall-item").bind("click", function () {
+                                    if (confirm("Delete confirmation!") == false) {
+                                        toastWarning("Cannel delete");
+                                        return;
+                                    }
+                                    if (selected.length == 0) {
+                                        toastError("Please select the emails to delete first");
+                                        return;
+                                    }
+                                    handle_account("delete", selected).then(callback => {
+                                        load_mail(0)
+                                        selected = []
+                                    })
+
+                                });
+                                $("#exportall-item").bind("click", function () {
+                                    if (selected.length == 0) {
+                                        toastError("Please select the mail to export first");
+                                        return;
+                                    }
+                                    handle_account("export", selected)
+                                    // eel.exportAccounts(selected)(function (callback) {
+                                    //     // var msg = callback.msg
+                                    //     // console.log(msg)
+                                    //     // if (msg == "Success") {
+                                    //     //     alert("Export email successfully")
+                                    //     // } else {
+                                    //     //     alert("Export mail failed")
+                                    //     // }
+                                    // });
+                                });
+                                // Thêm sự kiện cho menu xóa
+                                // document
+                                //     .getElementById("delete-item")
+                                //     .addEventListener("click", function () {
+                                //         row.remove();
+                                //         menu.remove();
+                                //     });
+                                $("#select-item").bind("click", function () {
+                                    const checkbox = row.querySelector(
+                                        "input[type='checkbox']"
+                                    );
+                                    checkbox.checked = true;
+                                    selectedPush(checkbox.value);
+                                    showSelected()
+
+                                });
+                                $("#deselect-item").bind("click", function () {
+                                    const checkbox = row.querySelector(
+                                        "input[type='checkbox']"
+                                    );
+                                    checkbox.checked = false;
+                                    selectedRemove(checkbox.value);
+                                    showSelected()
+                                });
+                                $("#selectall-item-running").bind("click", function () {
+
+                                    handle_account("select", "1").then((callback) => {
+                                        var data = callback.data
+                                        selected = selected.concat(data);
+                                        selected = selected.map(number => number.toString());
+                                        // console.log(selected)
+                                        checkboxEvent()
+                                    })
+
+                                    // eel.selectMails("1")(function (callback) {
+                                    //     var data = callback.data
+                                    //     selected = selected.concat(data);
+                                    //     selected = selected.map(number => number.toString());
+                                    //     // console.log(selected)
+                                    //     checkboxEvent()
+                                    // })
+                                    // checkboxes = document.getElementsByName("mails");
+                                    // for (var i = 0, n = checkboxes.length; i < n; i++) {
+                                    //     checkboxes[i].checked = true;
+                                    //     value = checkboxes[i].value;
+                                    //     selectedPush(value);
+                                    // }
+                                });
+                                $("#selectall-item-status").bind("click", function () {
+                                    var value = $(this).attr("value");
+                                    handle_account("select", value).then((callback) => {
+                                        var data = callback.data
+                                        selected = selected.concat(data);
+                                        selected = selected.map(number => number.toString());
+                                        console.log(selected)
+                                        checkboxEvent()
+                                    })
+
+                                    // eel.selectMails(value)(function (callback) {
+                                    //     var data = callback.data
+                                    //     selected = selected.concat(data);
+                                    //     selected = selected.map(number => number.toString());
+                                    //     console.log(selected)
+                                    //     checkboxEvent()
+                                    // })
+                                    // checkboxes = document.getElementsByName("mails");
+                                    // for (var i = 0, n = checkboxes.length; i < n; i++) {
+                                    //     checkboxes[i].checked = true;
+                                    //     value = checkboxes[i].value;
+                                    //     selectedPush(value);
+                                    // }
+                                });
+                                $("#selectall-item-no-running").bind("click", function () {
+
+
+                                    handle_account("select", "").then((callback) => {
+                                        var data = callback.data
+                                        selected = selected.concat(data);
+                                        selected = selected.map(number => number.toString());
+                                        // console.log(selected)
+                                        checkboxEvent()
+                                    })
+
+                                    // eel.selectMails("")(function (callback) {
+                                    //     var data = callback.data
+                                    //     selected = selected.concat(data);
+                                    //     selected = selected.map(number => number.toString());
+                                    //     // console.log(selected)
+                                    //     checkboxEvent()
+                                    // })
+                                    // checkboxes = document.getElementsByName("mails");
+                                    // for (var i = 0, n = checkboxes.length; i < n; i++) {
+                                    //     checkboxes[i].checked = true;
+                                    //     value = checkboxes[i].value;
+                                    //     selectedPush(value);
+                                    // }
+                                });
+                                $("#selectall-item").bind("click", function () {
+
+                                    handle_account("select", "all").then((callback) => {
+                                        var data = callback.data
+                                        selected = selected.concat(data);
+                                        selected = selected.map(number => number.toString());
+                                        // console.log(selected)
+                                        checkboxEvent()
+                                    })
+
+                                    // eel.selectMails("all")(function (callback) {
+                                    //     var data = callback.data
+                                    //     selected = selected.concat(data);
+                                    //     selected = selected.map(number => number.toString());
+                                    //     // console.log(selected)
+                                    //     checkboxEvent()
+                                    // })
+                                    // checkboxes = document.getElementsByName("mails");
+                                    // for (var i = 0, n = checkboxes.length; i < n; i++) {
+                                    //     checkboxes[i].checked = true;
+                                    //     value = checkboxes[i].value;
+                                    //     selectedPush(value);
+                                    // }
+                                });
+
+                                $("#deselectall-item").bind("click", function () {
+                                    selected = []
+                                    checkboxEvent()
+                                    // checkboxes = document.getElementsByName("mails");
+                                    // for (var i = 0, n = checkboxes.length; i < n; i++) {
+                                    //     checkboxes[i].checked = false;
+                                    //     value = checkboxes[i].value;
+                                    //     selectedRemove(value);
+                                    // }
+                                });
+                                addEventListener("click", (event) => {
+                                    menu.remove();
+                                });
+                                // Thêm hiệu ứng đổi màu khi di chuột vào menu
+                                const menuItems = document.querySelectorAll(".menu-item");
+                                menuItems.forEach(function (item) {
+                                    item.addEventListener("mouseover", function () {
+                                        item.style.color = "white";
+                                        item.style.backgroundColor = "green";
+                                    });
+                                    item.addEventListener("mouseout", function () {
+                                        item.style.backgroundColor = "white";
+                                        item.style.color = "black";
+                                    });
+                                });
+                            }
+                        });
+                        resolve();
+                    });
+                }
+
+
+
+
+                eel.getVersion()(function (callback) {
+                    var text = "Current version"
+                    var lang = localStorage.getItem("lang")
+                    if (lang == "vi") {
+                        text = "Phiên bản hiện tại"
+                    }
+                    setHtmlCssSelector("#version", text + ": " + callback)
+                });
+
+                function clickPage() {
+                    return new Promise((resolve, reject) => {
+                        $("#back_page").click(function () {
+                            var currentPage = document.querySelector(".page__numbers.active");
+                            var nextPage = currentPage.previousElementSibling;
+                            if (nextPage && nextPage.classList.contains("page__numbers")) {
+                                nextPage.classList.add("active");
+                                currentPage.classList.remove("active");
+                                const numPage = nextPage.textContent;
+                                load_mail(numPage);
+                            }
+                        });
+
+                        $("#next_page").click(function () {
+                            var currentPage = document.querySelector(".page__numbers.active");
+                            var nextPage = currentPage.nextElementSibling;
+                            if (nextPage && nextPage.classList.contains("page__numbers")) {
+                                nextPage.classList.add("active");
+                                currentPage.classList.remove("active");
+                                const numPage = nextPage.textContent;
+
+                                load_mail(numPage);
+                            }
+                        });
+                        $(".page__numbers").click(function () {
+                            // alert("page__numbers");
+                            // Bỏ tất cả class "active"
+                            $(".page__numbers").removeClass("active");
+                            // Thêm class "active" cho phần tử đang được click
+                            $(this).addClass("active");
+                            const numPage = $(this).text();
+                            // generateHTML(numPage, 10);
+                            // alert(numPage);
+                            // var html = generateHTML(numPage, 10);
+                            // setHtmlCssSelector("#app", html);
+                            load_mail(numPage);
+                            // clickPage();
+                        });
+                        $(".page__numbers")[0].click();
+                        resolve();
+                    });
+                }
+
+
+                loadPage()
+                loadTableMails()
+                clickPage()
+                // }, false);
+            });
+
+
+        </script>
+
+
+
+    </section>
+
+
+    <script src="/function.js"></script>
+    <!-- <script src="/codinglab.js"></script> -->
+</body>
+
+</html>

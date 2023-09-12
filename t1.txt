@@ -1,0 +1,7 @@
+{
+    "results": [{
+        "id": "814d9209-bb58-4691-b8a8-784e370f92ce",
+        "subject": "Kode verifikasi email: 786893",
+        "from": "noreply@google.com"
+    }]
+}

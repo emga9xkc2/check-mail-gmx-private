@@ -1,0 +1,35 @@
+greenlet==1.1.3
+#gevent==22.10.1
+gevent==21.12.0
+pycryptodome
+tqdm
+playwright==1.31.1
+#
+# gevent
+requests
+
+SQLAlchemy
+
+#timestring
+
+
+# pymem
+#pyautogui
+eel
+comtypes
+#pytesseract
+Pillow
+
+wmi
+psutil
+
+pyautoit
+pynput
+# aes-everywhere
+# ahk
+# ahk[binary]
+# python-telegram-bot
+# pystray
+numpy
+# pywebview
+# cefpython3
