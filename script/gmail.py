@@ -575,6 +575,8 @@ class Gmail:
                         return "sai_pass"
                     if "navigator.gmx.net/login" in url:
                         return "login ok"
+                    if "interceptiontype=VerifyLogin" in url:
+                        return "captcha"
                     if "interceptiontype=ForceChangePasswordLock" in url:
                         return "login ok"
                     if "interceptiontype=MtanObligation" in url:
